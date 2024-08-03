@@ -77,8 +77,10 @@ form.adicionar-form label {
 	font-weight: bold;
 }
 
-form.adicionar-form input[type="text"], form.adicionar-form input[type="number"],
-	form.adicionar-form input[type="submit"] {
+form.adicionar-form input[type="text"],
+form.adicionar-form input[type="number"],
+form.adicionar-form input[type="submit"]
+{
 	width: calc(100% - 20px);
 	padding: 10px;
 	margin: 5px 0;
@@ -100,6 +102,7 @@ form.adicionar-form button {
 /* form button:hover, form .editar:hover {
 	background-color: #555;
 } */
+
 .success-message {
 	width: 50%;
 	margin: 20px auto;
@@ -117,7 +120,7 @@ form.adicionar-form button {
 }
 
 .delete-link {
-	background: url('/icons/delete-icon.png') no-repeat center center;
+	background: url('drawable/icon/delete-icon.png') no-repeat center center;
 	background-size: contain;
 	border: none;
 	cursor: pointer;
@@ -128,7 +131,6 @@ form.adicionar-form button {
 	outline: none;
 	display: inline;
 	box-shadow: none;
-	border-radius: none;
 }
 
 .action-icon {

@@ -10,14 +10,22 @@ import br.ufg.inf.espec.backend.aula_spring.repository.ProdutoRepository;
 
 @Service
 public class ProdutoService {
-	@Autowired
-	private ProdutoRepository produtoRepository;
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
-	public List<Produto> listarProdutos() {
-		return produtoRepository.findAll();
-	}
+    public List<Produto> listarProdutos() {
+        return produtoRepository.findAll();
+    }
 
-	public Produto salvarProduto(Produto produto) {
-		return produtoRepository.save(produto);
-	}
+    public Produto salvarProduto(Produto produto) {
+        return produtoRepository.save(produto);
+    }
+
+    public Produto obterProdutos(Long id) {
+        return produtoRepository.findById(id).orElse(null);
+    }
+
+    public void excluirProduto(Long id) {
+        produtoRepository.deleteById(id);
+    }
 }

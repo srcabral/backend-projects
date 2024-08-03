@@ -38,4 +38,29 @@ public class ProdutoController {
 		redirectAttributes.addAttribute("sucesso", "Produto adicionado com sucesso!");
 		return "redirect:/produtos";
 	}
+
+	@GetMapping("/produtos/editar")
+	public String mostrarFormularioEditarProduto(@RequestParam("id") Long id, Model model) {
+		Produto produto = produtoService.obterProdutos(id);
+		model.addAttribute("produto", produto);
+		return "editar-produto";
+	}
+
+	@PostMapping("/produtos/editar")
+	public String editarProduto(@RequestParam("id") Long id, @RequestParam("nome") String nome,
+								@RequestParam("preco") double preco, RedirectAttributes redirectAttributes) {
+		Produto produto = produtoService.obterProdutos(id);
+		produto.setNome(nome);
+		produto.setPreco(preco);
+		produtoService.salvarProduto(produto);
+		redirectAttributes.addAttribute("sucesso", "Produto atualizado com sucesso!");
+		return "redirect:/produtos";
+	}
+
+	@PostMapping("/produtos/deletar")
+	public String deletarProduto(@RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
+		produtoService.excluirProduto(id);
+		redirectAttributes.addAttribute("sucesso", "Produto deletado com sucesso!");
+		return "redirect:/produtos";
+	}
 }
